@@ -2,10 +2,10 @@
 
 class News
 {
-    private string $titreN;
-    private string $descriptionN;
-    private string $lienN;
-    private string $dateN;
+    private $titreN;
+    private $descriptionN;
+    private $lienN;
+    private $dateN;
 
     /**
      * @param string $titreN
