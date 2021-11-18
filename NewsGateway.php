@@ -16,24 +16,53 @@ class NewsGateway{
             ':date' => array($date,PDO::PARAM_STR)
         ));
     }
-    public function update(string $lien, array $parameters){
-        $query='UPDATE NEWS SET  WHERE lien=:link';
-        $con->executeQuery($query, array(
-            ':link'=> $parameters
+
+    public function updateTitre(string $lien,string $newTitre){
+        $query='UPDATE news SET titre=:newTitre WHERE lien=:lien';
+        $this->con->executeQuery($query,array(
+            ':lien'=> array($lien,PDO::PARAM_STR),
+            ':newTitre' => array($newTitre,PDO::PARAM_STR)
         ));
     }
+
+    public function updateDescription(string $lien,string $newDescription){
+        $query='UPDATE news SET description=:newDescription WHERE lien=:lien';
+        $this->con->executeQuery($query,array(
+            ':lien'=> array($lien,PDO::PARAM_STR),
+            ':newDescription' => array($newDescription,PDO::PARAM_STR)
+        ));
+    }
+
+    public function updateDate(string $lien,string $newDate){
+        $query='UPDATE news SET date=:newDate WHERE lien=:lien';
+        $this->con->executeQuery($query,array(
+            ':lien'=> array($lien,PDO::PARAM_STR),
+            ':newDate' => array($newDate,PDO::PARAM_STR)
+        ));
+    }
+
+    public function updateLien(string $lien,string $newLien){
+        $query='UPDATE news SET lien=:newLien WHERE lien=:lien';
+        $this->con->executeQuery($query,array(
+            ':lien'=> array($lien,PDO::PARAM_STR),
+            ':newLien' => array($newLien,PDO::PARAM_STR)
+        ));
+    }
+
     public function delete(string $lien){
         $query='DELETE FROM NEWS WHERE lien=:link';
-        $con->executeQuery($query, array(
+        $this->con->executeQuery($query, array(
             ':link'=> array($lien,PDO::PARAM_STR)
         ));
     }
-    public function FindAllNews(){
-        $query='SELECT * FROM NEWS';
-        $con->executeQuery($query, array());
-        $results=$con->getResults();
-        foreach($results as $row) 
-            print $row['lien']."</br>";
+
+    public function findAllNews() : array{
+        $query='SELECT * FROM news';
+        $this->con->executeQuery($query);
+        $results=$this->con->getResults();
+        foreach ($results as $row)
+            $tabNews[]=new News($row['titre'],$row['description'],$row['lien'],$row['date']);
+        return $tabNews;
     }
 }
 ?>

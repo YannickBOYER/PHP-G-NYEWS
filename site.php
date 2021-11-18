@@ -3,11 +3,11 @@
 include ('news.php');
 
     class Site{
-        private $nomS;
-        private $lienS;
-        private $logoS;
-        private $fluxRSS;
-        private $news;
+        private string $nomS;
+        private string $lienS;
+        private string $logoS;
+        private string $fluxRSS;
+        private array $news;
 
 
 
