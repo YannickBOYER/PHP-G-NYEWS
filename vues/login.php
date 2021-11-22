@@ -23,7 +23,7 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"></li>
                 <li class="nav-item"></li>
-            </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="login.php" style="background: var(--bs-indigo);opacity: 1;">Connection</a></span>
+            </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="login.php" style="background: var(--bs-indigo);opacity: 1;">Connexion</a></span>
         </div>
     </div>
 </nav>
@@ -45,9 +45,7 @@
                                         <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Entrez l'email..." name="email" style="margin-top: 50px;border-radius: 38px;"></div>
                                         <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Mot de Passe" name="password" style="margin-top: 20px;border-radius: 33px;"></div>
                                         <div class="mb-3">
-                                            <div class="custom-control custom-checkbox small">
-                                                <div class="form-check" style="margin-top: 15px;"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
-                                            </div>
+
                                         </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Login</button>
                                     </form>
                                     <div class="text-center"></div>
