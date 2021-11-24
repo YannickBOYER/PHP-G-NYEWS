@@ -49,9 +49,9 @@
         </div>
         <div class="row articles">
             <?php
-                require_once ("Connection.php");
-                require_once ("NewsGateway.php");
-                require_once ("news.php");
+                require_once ("dal/Connection.php");
+                require_once ("dal/NewsGateway.php");
+                require_once ("dal/news.php");
 
                 try {
                     $dsn='mysql:host=localhost;dbname=dbyaboyer';
@@ -61,7 +61,7 @@
                     $GW = new NewsGateway($con);
                     $tab=$GW->findAllNews();
                     foreach($tab as $article) {
-                        echo("<div class='col-sm-6 col-md-4 item' style='margin-bottom: 70px;'><a href='#'><img class='img-fluid' src='assets/img/desk.jpg'></a><h3 class='name'>".$article->getTitreN()."</h3><p class='description'>".$article->getDescriptionN()."</p><a class='action' href='#'><i class='fa fa-arrow-circle-right' style='color: var(--bs-indigo);'></i></a></div>");
+                        echo("<div class='col-sm-6 col-md-4 item' style='margin-bottom: 70px;'><a href='#'><img class='img-fluid' src='vues/assets/img/desk.jpg'></a><h3 class='name'> <a href='index.php?action=cliquerNews&url=".$article->getLienN()."'>".$article->getTitreN()."</a></h3><p class='description'>".$article->getDescriptionN()."</p><a class='action' href='#'><i class='fa fa-arrow-circle-right' style='color: var(--bs-indigo);'></i></a></div>");
                     }
                     echo '<li><a href="index.php?page='.($page + 1).'"> NEXT </a></li>';
                 }

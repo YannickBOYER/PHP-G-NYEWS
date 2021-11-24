@@ -11,10 +11,10 @@ class CtrlUser{
             $action=$_REQUEST['action'];
             switch($action){
                 case NULL:
-
+                    $this->init();
                     break;
                 case "cliquerNews":
-
+                    $this->afficherNews();
                     break;
             }
         }
@@ -31,6 +31,18 @@ class CtrlUser{
             require ($rep.$vues['erreur']);
             }
         
+    }
+
+    function init(){
+        global $rep,$vues;
+        require($rep.$vues['vue1']);
+    }
+
+    function afficherNews(){
+        global $rep,$vues;
+        $url=$_REQUEST['url'];
+        //Valider URL dans classe Validation
+        header('Location: '.$url);
     }
 }
 ?>

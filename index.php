@@ -1,6 +1,6 @@
 <?php
 
-require_once('NewsGateway.php');
+require_once('dal/NewsGateway.php');
 $nbNewsParPage=10;
 try{
     $gw=new NewsGateway(new Connection('mysql:host=localhost;dbname=dbyaboyer','yaboyer','1234'));
