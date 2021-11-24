@@ -1,5 +1,6 @@
 <?php
 require_once('Connection.php');
+require_once('news.php');
 class NewsGateway{
     private $con;
 
@@ -66,7 +67,8 @@ class NewsGateway{
     }
 
     public function findNews($page,$nbNewsParPage) : array{
-        $query='SELECT * from news ORDER DESC LIMIT ($page-1)*$nbNewsParPage,$nbNewsParPage';
+        $calc=($page-1)*$nbNewsParPage;
+        $query='SELECT * from news ORDER BY date DESC LIMIT '.$calc.','.$nbNewsParPage;
         $this->con->executeQuery($query,array(
         ));
         $results=$this->con->getResults();
@@ -76,11 +78,10 @@ class NewsGateway{
     }
 
     public function getNbNews(): int{
-        $query='SELECT COUNT(*) FROM news';
+        $query='SELECT COUNT(*) cpt FROM news';
         $this->con->executeQuery($query);
         $results=$this->con->getResults();
-        $nb=$results['COUNT(*)'];
-        return $nb;
+        return $results[0]['cpt'];
     }
 }
 ?>

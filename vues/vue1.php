@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>test</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/Article-List.css">
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="vues/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vues/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="vues/assets/css/Article-List.css">
+    <link rel="stylesheet" href="vues/assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="vues/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="vues/assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="vues/assets/css/styles.css">
 </head>
 
 <body>
@@ -49,20 +49,21 @@
         </div>
         <div class="row articles">
             <?php
-                require_once ("../Connection.php");
-                require_once ("../NewsGateway.php");
-                require_once ("../News.php");
+                require_once ("Connection.php");
+                require_once ("NewsGateway.php");
+                require_once ("news.php");
 
                 try {
-                    $dsn='mysql:host=localhost;dbname=dbguassailly';
-                    $user='root';
-                    $password='';
+                    $dsn='mysql:host=localhost;dbname=dbyaboyer';
+                    $user='yaboyer';
+                    $password='1234';
                     $con = new Connection($dsn,$user,$password);
                     $GW = new NewsGateway($con);
                     $tab=$GW->findAllNews();
                     foreach($tab as $article) {
                         echo("<div class='col-sm-6 col-md-4 item' style='margin-bottom: 70px;'><a href='#'><img class='img-fluid' src='assets/img/desk.jpg'></a><h3 class='name'>".$article->getTitreN()."</h3><p class='description'>".$article->getDescriptionN()."</p><a class='action' href='#'><i class='fa fa-arrow-circle-right' style='color: var(--bs-indigo);'></i></a></div>");
                     }
+                    echo '<li><a href="index.php?page='.($page + 1).'"> NEXT </a></li>';
                 }
                 catch(PDOException $e)
                 {

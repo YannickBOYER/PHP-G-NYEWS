@@ -3,7 +3,7 @@
 require_once('NewsGateway.php');
 $nbNewsParPage=10;
 try{
-    $gw=new NewsGateway(new Connection('mysql:host=localhost;dbname=dbguassailly','root',''));
+    $gw=new NewsGateway(new Connection('mysql:host=localhost;dbname=dbyaboyer','yaboyer','1234'));
     $nbNewsTotal=$gw->getNbNews();
 } catch(PDOException $e)
 {
@@ -18,5 +18,5 @@ if($page>$nbPages || $page<0){
 }
 */
 $news=$gw->findNews($page,$nbNewsParPage);
-require_once('vues/vue1.php');
+require('vues/vue1.php');
 ?>
