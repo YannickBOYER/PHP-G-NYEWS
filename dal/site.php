@@ -1,6 +1,6 @@
 <?php
 
-include ('news.php');
+include('news.php');
 
     class Site{
         private string $nomS;
