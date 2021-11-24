@@ -7,7 +7,7 @@ $base="dbguassailly";
 $login="root";
 $mdp="";
 
-//Liste dse vues
+//Liste de vues
 $vues['vue1']='vues/vue1.php';
 $vues['admin']='vues/admin.php';
 $vues['erreur']='vues/erreur.php';
