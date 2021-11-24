@@ -64,5 +64,23 @@ class NewsGateway{
             $tabNews[]=new News($row['titre'],$row['description'],$row['lien'],$row['date']);
         return $tabNews;
     }
+
+    public function findNews($page,$nbNewsParPage) : array{
+        $query='SELECT * from news ORDER DESC LIMIT ($page-1)*$nbNewsParPage,$nbNewsParPage';
+        $this->con->executeQuery($query,array(
+        ));
+        $results=$this->con->getResults();
+        foreach($results as $row)
+            $tabNews[]=new News($row['titre'],$row['description'],$row['lien'],$row['date']);
+        return $tabNews;
+    }
+
+    public function getNbNews(): int{
+        $query='SELECT COUNT(*) FROM news';
+        $this->con->executeQuery($query);
+        $results=$this->con->getResults();
+        $nb=$results['COUNT(*)'];
+        return $nb;
+    }
 }
 ?>
