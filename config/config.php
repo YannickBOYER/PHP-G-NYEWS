@@ -3,7 +3,7 @@
 $rep=__DIR__.'/../';
 
 //Base de Données
-$base="dbguassailly";
+$base="mysql:host=localhost;dbname=dbguassailly";
 $login="root";
 $mdp="";
 

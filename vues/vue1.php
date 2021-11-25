@@ -20,12 +20,12 @@
 <div data-aos="slide-up" style="opacity: 1;filter: blur(0px) contrast(100%) hue-rotate(0deg);transform: scale(1);height: auto;">
     <section class="article-list"></section>
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button" style="background: rgb(38,35,35);color: var(--bs-gray-100); ">
-        <div class="container"><a class="navbar-brand" href="vue1.php" style="width: 103.6px;color: var(--bs-gray-100);">G-NYEWS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="index.php" style="width: 103.6px;color: var(--bs-gray-100);">G-NYEWS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
-                </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="login.php" style="background: var(--bs-indigo);opacity: 1;">Connexion</a></span>
+                </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="index.php?action=seConnecter" style="background: var(--bs-indigo);opacity: 1;">Connexion</a></span>
             </div>
         </div>
     </nav>
@@ -49,27 +49,22 @@
         </div>
         <div class="row articles">
             <?php
-                require_once ("dal/Connection.php");
-                require_once ("dal/NewsGateway.php");
-                require_once ("dal/news.php");
-
-                try {
-                    $dsn='mysql:host=localhost;dbname=dbyaboyer';
-                    $user='yaboyer';
-                    $password='1234';
-                    $con = new Connection($dsn,$user,$password);
-                    $GW = new NewsGateway($con);
-                    $tab=$GW->findAllNews();
-                    foreach($tab as $article) {
-                        echo("<div class='col-sm-6 col-md-4 item' style='margin-bottom: 70px;'><a href='#'><img class='img-fluid' src='vues/assets/img/desk.jpg'></a><h3 class='name'> <a href='index.php?action=cliquerNews&url=".$article->getLienN()."'>".$article->getTitreN()."</a></h3><p class='description'>".$article->getDescriptionN()."</p><a class='action' href='#'><i class='fa fa-arrow-circle-right' style='color: var(--bs-indigo);'></i></a></div>");
-                    }
-                    echo '<li><a href="index.php?page='.($page + 1).'"> NEXT </a></li>';
-                }
-                catch(PDOException $e)
-                {
-                    echo $e->getMessage();
-                }
+                foreach($tabNews as $article) {
             ?>
+            <div class='col-sm-6 col-md-4 item' style='margin-bottom: 70px;'>
+                <a href='#'><img class='img-fluid' src='vues/assets/img/desk.jpg'></a>
+                <h3 class='name'>
+                    <a href="index.php?action=cliquerNews&url=<?php echo $article->getLienN()?>"><?php echo $article->getTitreN()?></a>
+                </h3>
+                <p class='description'><?php echo $article->getDescriptionN(); ?></p>
+                <a class='action' href='#'><i class='fa fa-arrow-circle-right' style='color: var(--bs-indigo);'></i>
+                </a>
+            </div>
+            <?php
+              }
+                ?>
+            <a href="index.php?page=<?php echo $page+1 ?>"> NEXT </a>
+
 
         </div>
     </div>
