@@ -55,6 +55,10 @@ class CtrlUser{
         require($rep.$vues['vue1']);
     }
 
+    function seConnecter(){
+        global $rep,$vues;
+        require ($rep.$vues['login']);
+    }
     function allerAArticle(){
         global $rep,$vues;
         $url=$_REQUEST['url'];

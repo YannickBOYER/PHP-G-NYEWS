@@ -5,25 +5,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Login - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/Article-List.css">
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="vues/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vues/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="vues/assets/css/Article-List.css">
+    <link rel="stylesheet" href="vues/assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="vues/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="vues/assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="vues/assets/css/styles.css">
 </head>
 
 <body class="bg-gradient-primary" style="background: rgb(255,255,255);">
 <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button" style="background: rgb(38,35,35);color: var(--bs-gray-100);">
-    <div class="container"><a class="navbar-brand" href="vue1.php" style="width: 103.6px;color: var(--bs-gray-100);">G-NYEWS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container"><a class="navbar-brand" href="index.php" style="width: 103.6px;color: var(--bs-gray-100);">G-NYEWS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"></li>
                 <li class="nav-item"></li>
-            </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="login.php" style="background: var(--bs-indigo);opacity: 1;">Connexion</a></span>
+
         </div>
     </div>
 </nav>
@@ -34,7 +34,7 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
-                                <div class="flex-grow-1 bg-login-image" style="background: url(&quot;assets/img/pexels-ekrulila-3837409.jpg&quot;) center;"></div>
+                                <div class="flex-grow-1 bg-login-image" style="background: url(&quot;vues/assets/img/pexels-ekrulila-3837409.jpg&quot;) center;"></div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
