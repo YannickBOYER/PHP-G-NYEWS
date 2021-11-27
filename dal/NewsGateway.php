@@ -50,6 +50,14 @@ class NewsGateway{
         ));
     }
 
+    public function updateImage(string $lien,string $newImage){
+        $query='UPDATE news SET image=:newImage WHERE lien=:lien';
+        $this->con->executeQuery($query,array(
+            ':lien'=> array($lien,PDO::PARAM_STR),
+            ':newImage' => array($newImage,PDO::PARAM_STR)
+        ));
+    }
+
     public function delete(string $lien){
         $query='DELETE FROM NEWS WHERE lien=:link';
         $this->con->executeQuery($query, array(
@@ -62,7 +70,7 @@ class NewsGateway{
         $this->con->executeQuery($query);
         $results=$this->con->getResults();
         foreach ($results as $row)
-            $tabNews[]=new News($row['titre'],$row['description'],$row['lien'],$row['date']);
+            $tabNews[]=new News($row['titre'],$row['description'],$row['lien'],$row['date'],$row['image']);
         return $tabNews;
     }
 
@@ -72,8 +80,11 @@ class NewsGateway{
         $this->con->executeQuery($query,array(
         ));
         $results=$this->con->getResults();
-        foreach($results as $row)
-            $tabNews[]=new News($row['titre'],$row['description'],$row['lien'],$row['date']);
+        foreach($results as $row) {
+            if(empty($row['image'])) $img="vues/assets/img/desk.jpg"; else $img = $row['image']; //Mets une image de base
+            $tabNews[] = new News($row['titre'], $row['description'], $row['lien'], $row['date'], $img);
+
+        }
         return $tabNews;
     }
 

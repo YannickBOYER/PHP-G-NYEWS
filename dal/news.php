@@ -6,19 +6,21 @@ class News
     private $descriptionN;
     private $lienN;
     private $dateN;
-
+    private $imageN;
     /**
      * @param string $titreN
      * @param string $descriptionN
      * @param string $lienN
      * @param string $dateN
+     * @param string $imageN
      */
-    public function __construct(string $titreN, string $descriptionN, string $lienN, string $dateN)
+    public function __construct(string $titreN, string $descriptionN, string $lienN, string $dateN, string $imageN)
     {
         $this->titreN = $titreN;
         $this->descriptionN = $descriptionN;
         $this->lienN = $lienN;
         $this->dateN = $dateN;
+        $this->imageN=$imageN;
     }
 
     /**
@@ -27,6 +29,14 @@ class News
     public function getTitreN(): string
     {
         return $this->titreN;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageN(): string
+    {
+        return $this->imageN;
     }
 
     /**
@@ -83,6 +93,14 @@ class News
     public function setDateN(string $dateN): void
     {
         $this->dateN = $dateN;
+    }
+
+    /**
+     * @param string $imageN
+     */
+    public function setImageN(string $imageN): void
+    {
+        $this->imageN = $imageN;
     }
 
 
