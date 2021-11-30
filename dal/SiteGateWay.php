@@ -1,6 +1,7 @@
 <?php
 require_once('Connection.php');
 require_once('site.php');
+
 class SiteGateWay
 {
     private $con;
@@ -14,7 +15,7 @@ class SiteGateWay
     }
 
     public function insert(string $nom, string $lien, string $logo, string $flux){
-        $query='INSERT INTO sites VALUES(:nom,:lien,:logo,:flux)';
+        $query='INSERT INTO sites VALUES(:nom,:logo,:lien,:flux)';
         $this->con->executeQuery($query, array(
             ':nom' => array($nom,PDO::PARAM_STR),
             ':lien' => array($lien,PDO::PARAM_STR),
@@ -69,5 +70,13 @@ class SiteGateWay
         $this->con->executeQuery($query, array(
             ':link'=> array($lien,PDO::PARAM_STR)
         ));
+    }
+
+
+    public function getNbSites(): int{
+        $query='SELECT COUNT(*) cpt FROM sites';
+        $this->con->executeQuery($query);
+        $results=$this->con->getResults();
+        return $results[0]['cpt'];
     }
 }

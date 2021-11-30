@@ -44,10 +44,11 @@
                                     <form class="user">
                                         <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Entrez l'email..." name="email" style="margin-top: 50px;border-radius: 38px;"></div>
                                         <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Mot de Passe" name="password" style="margin-top: 20px;border-radius: 33px;"></div>
-                                        <div class="mb-3">
+                                        <div class="mb-3"></div>
 
-                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Login</button>
+
                                     </form>
+                               <button class="btn btn-primary d-block btn-user w-100"  href="index.php?action=accesAdmin">Login</button>
                                     <div class="text-center"></div>
                                 </div>
                             </div>
@@ -57,8 +58,8 @@
             </div>
         </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+    <script src="vues/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vues/assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </body>
 

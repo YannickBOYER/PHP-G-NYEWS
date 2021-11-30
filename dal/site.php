@@ -1,13 +1,13 @@
 <?php
 
-include('news.php');
+
 
     class Site{
-        private string $nomS;
-        private string $lienS;
-        private string $logoS;
-        private string $fluxRSS;
-        private array $news;
+        private $nomS;
+        private $lienS;
+        private $logoS;
+        private $fluxRSS;
+        //private $news;
 
 
 
@@ -96,13 +96,12 @@ include('news.php');
         {
             return $this->news;
         }
-
-        /**
-         * @param array $news
-         */
+        /*
+        /*
         public function setNews(array $news): void
         {
             $this->news = $news;
         }
+        */
     }
 ?>

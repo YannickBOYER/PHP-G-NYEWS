@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>test</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Article-List.css">
-    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="vues/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vues/assets/css/Article-List.css">
+    <link rel="stylesheet" href="vues/assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="vues/assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="vues/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="vues/assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="vues/assets/css/styles.css">
 </head>
 
 <body>
@@ -25,63 +25,69 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item"></li>
                         <li class="nav-item"></li>
-                    </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="login.php" style="background: var(--bs-indigo);opacity: 1;">Connexion</a></span>
+                    </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="login.php" style="background: var(--bs-indigo);opacity: 1;">Déconnexion</a></span>
                 </div>
             </div>
         </nav>
     </div>
     <div class="card-group" style="margin: 50px;">
-        <div class="card" style="height: auto;"><img class="card-img-top w-100 d-block" src="assets/img/News-media-standards.jpg">
+        <div class="card" style="height: auto;"><img class="card-img-top w-100 d-block" src="vues/assets/img/News-media-standards.jpg">
             <form method="post" style="margin: 0;height: 425px;padding: 23px;width: auto;">
                 <h2 class="text-center" style="width: auto;margin: 39px;">Ajouter un Site</h2>
-                <div class="mb-3"></div><input class="form-control" type="text" name="name" placeholder="Nom du site" style="padding: 6px 18px;margin: 0px;border-radius: 63px;">
-                <div class="mb-3"></div><input class="form-control" type="text" name="name" placeholder="Logo" style="padding: 6px 18px;margin: 0px;border-radius: 63px;">
-                <div class="mb-3"></div><input class="form-control" type="text" name="name" placeholder="Lien" style="padding: 6px 18px;margin: 0px;border-radius: 63px;">
-                <div class="mb-3"></div><input class="form-control" type="text" name="name" placeholder="Flux RSS" style="padding: 6px 18px;margin: 0px;border-radius: 33px;"><button class="btn btn-primary d-flex" type="button" style="margin: 20px;background: var(--bs-indigo);border-color: var(--bs-indigo);margin-left: auto;margin-right: auto;width: auto;">Ajouter</button>
+                <div class="mb-3"></div><input class="form-control" type="text" name="nom" placeholder="Nom du site" style="padding: 6px 18px;margin: 0px;border-radius: 63px;">
+                <div class="mb-3"></div><input class="form-control" type="text" name="logo" placeholder="Logo" style="padding: 6px 18px;margin: 0px;border-radius: 63px;">
+                <div class="mb-3"></div><input class="form-control" type="text" name="lien" placeholder="Lien" style="padding: 6px 18px;margin: 0px;border-radius: 63px;">
+                <div class="mb-3"></div><input class="form-control" type="text" name="flux" placeholder="Flux RSS" style="padding: 6px 18px;margin: 0px;border-radius: 33px;">
+                <button class="btn btn-primary d-flex" name="action" value="ajouterSite" style="margin: 20px;background: var(--bs-indigo);border-color: var(--bs-indigo);margin-left: auto;margin-right: auto;width: auto;">Ajouter</button>
             </form>
         </div>
         <div class="card" style="padding: 0;">
             <div class="card-body" style="height: auto;">
                 <h2 class="text-center" style="width: auto;margin: 39px;">Liste des Sites</h2>
                 <ul class="list-group">
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 1</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 2</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 3</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 3</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 3</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 3</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 3</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 3</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 3</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 3</span></li>
-                    <li class="list-group-item" style="margin: 3px;"><span>List Group Item 3</span></li>
+                    <?php
+                        foreach($tabSite as $Site) {
+                    ?>
+                    <li class="list-group-item" style="margin: 3px;"><span><?php echo $Site->getNomS(); ?>  </span></li>
+                    <?php
+                        }
+                    ?>
+
                 </ul>
                 <hr>
                 <h2 class="text-center" style="width: auto;margin: 39px;">Supprimer un Site</h2>
-                <div class="d-flex justify-content-center align-items-center align-content-center"><select class="align-content-center" style="margin: 24px;width: auto;height: 26px;">
-                        <optgroup label="This is a group">
-                            <option value="12" selected="">This is item 1</option>
-                            <option value="13">This is item 2</option>
-                            <option value="14">This is item 3</option>
-                        </optgroup>
-                    </select><button class="btn btn-primary" type="button" style="margin: 20px;background: var(--bs-indigo);border-color: var(--bs-indigo);">Supprimer</button></div>
+                    <form method="post" class="d-flex justify-content-center align-items-center align-content-center" >
+                    <select name="choixSuppr" class="align-content-center" style="margin: 24px;width: auto;height: 26px;">
+                            <?php
+                            foreach($tabSite as $Site) {
+                            ?>
+                            <option value="<?php echo $Site->getLienS() ?>" ><?php echo $Site->getNomS() ?> </option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+
+                    <button class="btn btn-primary d-flex" type="submit" name="action" value="supprimerSite" style="margin: 20px;background: var(--bs-indigo);border-color: var(--bs-indigo);">Supprimer</button>
+                    </form>
+
+
                 <hr>
                 <h2 class="text-center" style="width: auto;margin: 39px;">Flux RSS</h2>
-                <div class="d-flex justify-content-center align-items-center align-content-center"><select class="align-content-center" style="margin: 24px;width: auto;height: 26px;">
-                        <optgroup label="This is a group">
+                <div class="d-flex justify-content-center align-items-center align-content-center">
+                    <select  >
                             <option value="12" selected="">This is item 1</option>
                             <option value="13">This is item 2</option>
                             <option value="14">This is item 3</option>
-                        </optgroup>
-                    </select></div>
+                    </select>
+                    </div>
             </div>
         </div>
     </div>
     <footer class="footer-basic" style="background: rgb(38,35,35);">
         <p class="copyright">Guillaume &amp; Yannick © 2021</p>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+    <script src="vues/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vues/assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </body>
 

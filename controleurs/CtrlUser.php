@@ -16,16 +16,14 @@ class CtrlUser{
                 case "cliquerNews":
                     $this->allerAArticle();
                     break;
-                case "seConnecter":
-                    $this->seConnecter();
-                    break;
+
 
             }
         }
         catch (PDOException $e)
         {
             //si erreur BD, pas le cas ici
-            $tVueErreur[] =	"Erreur inattendue!!! ";
+            $tVueErreur[] =	"Erreur sur la Base de donnée !";
             require ($rep.$vues['erreur']);
 
         }
@@ -55,10 +53,7 @@ class CtrlUser{
         require($rep.$vues['vue1']);
     }
 
-    function seConnecter(){
-        global $rep,$vues;
-        require ($rep.$vues['login']);
-    }
+
     function allerAArticle(){
         global $rep,$vues;
         $url=$_REQUEST['url'];
