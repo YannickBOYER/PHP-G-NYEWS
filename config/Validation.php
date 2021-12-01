@@ -93,7 +93,7 @@ class Validation
             return false;
         }
         if(!filter_var($fluxRSS,FILTER_VALIDATE_URL)){
-            $tVueErreur[]="URL du flux RSS non valide";
+            $tVueErreur[]="URL flux RSS non valide";
             return false;
         }
         return true;
