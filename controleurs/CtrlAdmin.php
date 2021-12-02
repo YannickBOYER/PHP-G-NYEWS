@@ -11,7 +11,7 @@ class CtrlAdmin
         try {
             $action = $_REQUEST['action'];
             switch ($action) {
-                case "null":
+                case "seConnecter":
                     $this->seConnecter();
                     break;
                 case "accesAdmin":

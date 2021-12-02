@@ -19,13 +19,13 @@
 <body>
     <div data-aos="slide-up" style="opacity: 1;filter: blur(0px) contrast(100%) hue-rotate(0deg);transform: scale(1);height: auto;">
         <section class="article-list"></section>
-        <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button" style="background: rgb(38,35,35);color: var(--bs-gray-100);">
+        <nav class="navbar navbar-dark navbar-expand navigation-clean-button" style="background: rgb(38,35,35);color: var(--bs-gray-100); height: 100px">
             <div class="container"><a class="navbar-brand" href="index.php" style="width: 103.6px;color: var(--bs-gray-100);">G-NYEWS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item"></li>
                         <li class="nav-item"></li>
-                    </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="login.php" style="background: var(--bs-indigo);opacity: 1;">Déconnexion</a></span>
+                    </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="index.php" style="background: var(--bs-indigo);opacity: 1;">Déconnexion</a></span>
                 </div>
             </div>
         </nav>
@@ -72,12 +72,13 @@
 
 
                 <hr>
-                <h2 class="text-center" style="width: auto;margin: 39px;">Flux RSS</h2>
+                <h2 class="text-center" style="width: auto;margin: 39px;">Nombre de News Par Page</h2>
                 <div class="d-flex justify-content-center align-items-center align-content-center">
                     <select  >
-                            <option value="12" selected="">This is item 1</option>
-                            <option value="13">This is item 2</option>
-                            <option value="14">This is item 3</option>
+                            <option value="3" selected="">3</option>
+                            <option value="6">6</option>
+                            <option value="9">9</option>
+                            <option value="12">12</option>
                     </select>
                     </div>
             </div>

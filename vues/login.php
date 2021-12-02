@@ -17,7 +17,7 @@
 </head>
 
 <body class="bg-gradient-primary" style="background: rgb(255,255,255);">
-<nav class="navbar navbar-light navbar-expand-lg navigation-clean-button" style="background: rgb(38,35,35);color: var(--bs-gray-100);">
+<nav class="navbar navbar-dark navbar-expand navigation-clean-button" style="background: rgb(38,35,35);color: var(--bs-gray-100); height: 100px">
     <div class="container"><a class="navbar-brand" href="index.php" style="width: 103.6px;color: var(--bs-gray-100);">G-NYEWS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav me-auto">
@@ -41,14 +41,14 @@
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4" style="margin-top: 50px;">Bienvenue !</h4>
                                     </div>
-                                    <form class="user">
-                                        <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Entrez l'email..." name="email" style="margin-top: 50px;border-radius: 38px;"></div>
-                                        <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Mot de Passe" name="password" style="margin-top: 20px;border-radius: 33px;"></div>
+
+                                        <div class="mb-3"><input class="form-control form-control-user" type="login"  placeholder="Entrez le login..." name="login" style="margin-top: 50px;border-radius: 38px;"></div>
+                                        <div class="mb-3"><input class="form-control form-control-user" type="password"  placeholder="Mot de Passe" name="password" style="margin-top: 20px;border-radius: 33px;"></div>
                                         <div class="mb-3"></div>
 
 
-                                    </form>
-                               <button class="btn btn-primary d-block btn-user w-100"  href="index.php?action=accesAdmin">Login</button>
+
+                               <a class="btn btn-primary d-block btn-user w-100"  href="index.php?action=accesAdmin" >Login</a>
                                     <div class="text-center"></div>
                                 </div>
                             </div>

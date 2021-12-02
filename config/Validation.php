@@ -59,7 +59,7 @@ class Validation
     }
 
 
-    static function validSite(string $nom,string $logo, string $lien, string $fluxRSS, array &$tVueErreur):bool{
+    public static function validSite(string $nom,string $logo, string $lien, string $fluxRSS, array &$tVueErreur):bool{
 
         if(empty($nom)){
             $tVueErreur[]="Nom manquant";

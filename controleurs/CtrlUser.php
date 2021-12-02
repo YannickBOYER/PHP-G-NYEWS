@@ -42,15 +42,23 @@ class CtrlUser{
 
 
         //Gestion des pages de news
-        $nbNewsParPage=9;
-        $nbNewsTotal=$GW->getNbNews();
-        $nbPages=ceil($nbNewsTotal/$nbNewsParPage);
-        $page=(isset($_GET['page'])) ? abs(intval($_GET['page'])) : 1;
+        $nbNewsParPage = 9;
+        $nbNewsTotal = $GW->getNbNews();
+        if($nbNewsTotal == 0) {
+            $page = 1;
+            $nbPages = 1;
+            $tabNews=[];
+        }
+        else {
+            $nbPages = ceil($nbNewsTotal / $nbNewsParPage);
+            $page = (isset($_GET['page'])) ? abs(intval($_GET['page'])) : 1;
 
-        $page=($page==0) ? 1 : $page;
-        $page=($page>$nbPages) ? $nbPages: $page;
-        $tabNews=$GW->findNews($page,$nbNewsParPage);
-        require($rep.$vues['vue1']);
+            $page = ($page == 0) ? 1 : $page;
+            $page = ($page > $nbPages) ? $nbPages : $page;
+            $tabNews = $GW->findNews($page, $nbNewsParPage);
+
+        }
+        require($rep . $vues['vue1']);
     }
 
 
