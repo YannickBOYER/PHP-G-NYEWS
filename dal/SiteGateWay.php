@@ -79,4 +79,13 @@ class SiteGateWay
         $results=$this->con->getResults();
         return $results[0]['cpt'];
     }
+
+    public function findNbSites(string $lien) :int{
+        $query='SELECT COUNT(*) cpt FROM SITES WHERE LIEN=:link';
+        $this->con->executeQuery($query, array(
+            ':link'=> array($lien,PDO::PARAM_STR)
+        ));
+        $results=$this->con->getResults();
+        return $results[0]['cpt'];
+    }
 }

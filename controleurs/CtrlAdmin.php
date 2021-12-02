@@ -18,10 +18,10 @@ class CtrlAdmin
                     $this->accesAdmin();
                     break;
                 case "ajouterSite":
-                    $this->ajouterSite();
+                    $this->ajouterSite($tVueErreur);
                     break;
                 case "supprimerSite":
-                    $this->supprimerSite();
+                    $this->supprimerSite($tVueErreur);
                     break;
             }
         } catch (PDOException $e) {
@@ -56,7 +56,7 @@ class CtrlAdmin
         }
     }
 
-    function ajouterSite(){
+    function ajouterSite(array &$tVueErreur){
         global $rep, $vues, $login, $password, $base;
         $nom = $_REQUEST['nom'];
         $logo = $_REQUEST['logo'];
@@ -64,24 +64,35 @@ class CtrlAdmin
         $flux = $_REQUEST['flux'];
 
         //VALIDATION A FAIRE
-
-        $GW = new SiteGateWay(new Connection($base, $login, ''));
-        $GW->insert($nom,$lien,$logo,$flux);
-        $this->accesAdmin();
+        if(Validation::validSite($nom,$logo,$lien,$flux,$tVueErreur)){
+            $GW = new SiteGateWay(new Connection($base, $login, ''));
+            $GW->insert($nom,$lien,$logo,$flux);
+            $this->accesAdmin();
+        }
+        else {
+            $tVueErreur[] = "Erreur lors de la validation de l'ajout du site";
+            require($rep . $vues['erreur']);
+        }
     }
 
 
-    function supprimerSite(){
+    function supprimerSite(array &$tVueErreur){
         global $rep, $vues, $login, $password, $base;
 
         //VALIDATION A FAIRE
 
         $selectedlien = $_POST['choixSuppr'];
 
+        if(Validation::validURL($selectedlien,$tVueErreur)){
+            $GW = new SiteGateWay(new Connection($base, $login, ''));
+            $GW->delete($selectedlien);
+            $this->accesAdmin();
+        }
+        else{
+            $tVueErreur[] = "Erreur lors de la validation de la suppression du site";
+            require($rep . $vues['erreur']);
+        }
 
-        $GW = new SiteGateWay(new Connection($base, $login, ''));
-        $GW->delete($selectedlien);
-        $this->accesAdmin();
     }
 
 }

@@ -30,7 +30,7 @@ class CtrlUser{
         catch (Exception $e2)
             {
                 $tVueErreur[] =	"Erreur inattendue!!! ";
-            require ($rep.$vues['erreur']);
+                require ($rep.$vues['erreur']);
             }
 
     }

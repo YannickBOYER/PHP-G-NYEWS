@@ -7,8 +7,6 @@
         private $lienS;
         private $logoS;
         private $fluxRSS;
-        //private $news;
-
 
 
         /**
@@ -89,19 +87,6 @@
             $this->fluxRSS = $fluxRSS;
         }
 
-        /**
-         * @return array
-         */
-        public function getNews(): array
-        {
-            return $this->news;
-        }
-        /*
-        /*
-        public function setNews(array $news): void
-        {
-            $this->news = $news;
-        }
-        */
+
     }
 ?>
