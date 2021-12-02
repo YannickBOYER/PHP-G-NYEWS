@@ -34,7 +34,7 @@
 
 </head>
 
-<body>
+<body style="min-height: 100vh; position: relative">
 <div data-aos="slide-up" style="opacity: 1;filter: blur(0px) contrast(100%) hue-rotate(0deg);transform: scale(1);height: auto;">
     <section class="article-list"></section>
     <nav class="navbar navbar-dark navbar-expand navigation-clean-button" style="background: rgb(38,35,35);color: var(--bs-gray-100); height: 100px ">
@@ -47,20 +47,23 @@
             </div>
         </div>
     </nav>
+    <div style="text-align: center" >
     <?php
 if(isset($tVueErreur) && !empty($tVueErreur)) {
-    foreach ($tVueErreur as $value) {
-        echo $value."<br/>";
+    foreach ($tVueErreur as $value) { ?>
+        <h1><?php echo $value; ?></h1>
+
+    <?php
     }
 }
 else{
     echo "pas d'erreur <br/>";
 }
 ?>
-
+    </div>
 </div>
 
-<footer class="footer-basic" style="background: rgb(38,35,35);">
+<footer class="footer-basic" style="background: rgb(38,35,35); position: absolute;  bottom: 0; width: 100%; ">
     <p class="copyright">Guillaume &amp; Yannick © 2021</p>
 </footer>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>

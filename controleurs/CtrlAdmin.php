@@ -15,7 +15,7 @@ class CtrlAdmin
                     $this->seConnecter();
                     break;
                 case "accesAdmin":
-                    $this->accesAdmin();
+                    $this->accesAdmin($tVueErreur);
                     break;
                 case "ajouterSite":
                     $this->ajouterSite($tVueErreur);
@@ -42,17 +42,25 @@ class CtrlAdmin
         require($rep . $vues['login']);
     }
 
-    function accesAdmin()
+    function accesAdmin(array &$tVueErreur)
     {
         global $rep, $vues, $login, $password, $base;
-        $GW = new SiteGateWay(new Connection($base, $login, ''));
-        if($GW->getNbSites()<=0){
-            $tabSite= [];
-            require($rep . $vues['admin']);
+        $username = $_REQUEST['username'];
+        $pass = $_REQUEST['pass'];
+        if(Validation::validLogin($username,$pass,$tVueErreur)) {
+
+            $GW = new SiteGateWay(new Connection($base, $login, ''));
+            if ($GW->getNbSites() <= 0) {
+                $tabSite = [];
+                require($rep . $vues['admin']);
+            } else {
+                $tabSite = $GW->findAllSites();
+                require($rep . $vues['admin']);
+            }
         }
         else {
-            $tabSite = $GW->findAllSites();
-            require($rep . $vues['admin']);
+            $tVueErreur[] = "Username ou mot de passe non autorisé";
+            require($rep . $vues['erreur']);
         }
     }
 
@@ -63,7 +71,6 @@ class CtrlAdmin
         $lien = $_REQUEST['lien'];
         $flux = $_REQUEST['flux'];
 
-        //VALIDATION A FAIRE
         if(Validation::validSite($nom,$logo,$lien,$flux,$tVueErreur)){
             $GW = new SiteGateWay(new Connection($base, $login, ''));
             $GW->insert($nom,$lien,$logo,$flux);
@@ -79,7 +86,6 @@ class CtrlAdmin
     function supprimerSite(array &$tVueErreur){
         global $rep, $vues, $login, $password, $base;
 
-        //VALIDATION A FAIRE
 
         $selectedlien = $_POST['choixSuppr'];
 
