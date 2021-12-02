@@ -4,15 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>test</title>
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>G-NEYWS</title>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="vues/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="vues/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="vues/assets/css/Article-List.css">
@@ -22,18 +18,11 @@
     <link rel="stylesheet" href="vues/assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="vues/assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="vues/assets/css/styles.css">
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-
-
-
 </head>
 
 <body style="min-height: 100vh; position: relative">
-<div data-aos="slide-up" style="opacity: 1;filter: blur(0px) contrast(100%) hue-rotate(0deg);transform: scale(1);height: auto;">
-    <section class="article-list"></section>
+
     <nav class="navbar navbar-dark navbar-expand navigation-clean-button" style="background: rgb(38,35,35);color: var(--bs-gray-100); height: 100px  ">
         <div class="container"><a class="navbar-brand" href="index.php" style="width: 103.6px;color: var(--bs-gray-100);">G-NYEWS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -45,20 +34,16 @@
         </div>
     </nav>
     <div class="container" style="padding: 0px 12px;">
-
-
-
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin: 50px"  >
-
             <div class="carousel-inner">
-                <?php if(sizeof($tabNews)>=1)  {
+                <?php if(sizeof($tabLastNews)>=1)  {
                     ?>
                     }
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="<?php echo $tabNews[0]->getImageN()?>" alt="First slide" style="width:1200px;height:600px;object-fit:cover">
+                        <img class="d-block w-100" src="<?php echo $tabLastNews[0]->getImageN()?>" alt="First slide" style="width:1200px;height:600px;object-fit:cover">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5><?php echo $tabNews[0]->getTitreN(); ?></h5>
-                            <p><?php echo $tabNews[0]->getDescriptionN(); ?></p>
+                            <h5><?php echo $tabLastNews[0]->getTitreN(); ?></h5>
+                            <p><?php echo $tabLastNews[0]->getDescriptionN(); ?></p>
                         </div>
                     </div>
                 <?php }
@@ -69,29 +54,23 @@
                             <h5>Ca semble vide par ici... </h5>
                         </div>
                      </div>
-                <?php } ?>
-
-
-
-                <?php if(sizeof($tabNews)>=2)  {
+                <?php } if(sizeof($tabLastNews)>=2)  {
                     ?>
-
                     <div class="carousel-item">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5><?php echo $tabNews[1]->getTitreN(); ?></h5>
-                            <p><?php echo $tabNews[1]->getDescriptionN(); ?></p>
+                            <h5><?php echo $tabLastNews[1]->getTitreN(); ?></h5>
+                            <p><?php echo $tabLastNews[1]->getDescriptionN(); ?></p>
                         </div>
-                        <img class="d-block w-100" src="<?php echo $tabNews[1]->getImageN()?>" alt="Second slide"  style="width:1200px;height:600px;object-fit:cover">
+                        <img class="d-block w-100" src="<?php echo $tabLastNews[1]->getImageN()?>" alt="Second slide"  style="width:1200px;height:600px;object-fit:cover">
                     </div>
-                <?php } ?>
-                <?php if(sizeof($tabNews)>=3) {
+                <?php } if(sizeof($tabLastNews)>=3) {
                     ?>
                     <div class="carousel-item">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5><?php echo $tabNews[2]->getTitreN(); ?></h5>
-                            <p><?php echo $tabNews[2]->getDescriptionN(); ?></p>
+                            <h5><?php echo $tabLastNews[2]->getTitreN(); ?></h5>
+                            <p><?php echo $tabLastNews[2]->getDescriptionN(); ?></p>
                         </div>
-                        <img class="d-block w-100" src="<?php echo $tabNews[2]->getImageN()?>" alt="Third slide"  style="width:1200px;height:600px;object-fit:cover">
+                        <img class="d-block w-100" src="<?php echo $tabLastNews[2]->getImageN()?>" alt="Third slide"  style="width:1200px;height:600px;object-fit:cover">
                     </div>
                 <?php } ?>
             </div>
@@ -125,8 +104,6 @@
             <?php
               }
                 ?>
-
-
         </div>
         <div align="center">
             <a href="index.php?page=<?php echo $page-1 ?>"> &lt&lt </a>
@@ -134,7 +111,6 @@
             <?php echo $page ?>
             <?php echo ("... ".$nbPages) ?>
             <a href="index.php?page=<?php echo $page+1; ?>"> &gt&gt </a>
-
         </div>
         <?php } ?>
     </div>
@@ -146,8 +122,6 @@
 <script src="vues/assets/js/bs-init.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </body>
-
-
 </html>
 
 

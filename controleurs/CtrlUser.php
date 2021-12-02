@@ -48,6 +48,7 @@ class CtrlUser{
             $page = 1;
             $nbPages = 1;
             $tabNews=[];
+            $tabLastNews=[];
         }
         else {
             $nbPages = ceil($nbNewsTotal / $nbNewsParPage);
@@ -56,7 +57,7 @@ class CtrlUser{
             $page = ($page == 0) ? 1 : $page;
             $page = ($page > $nbPages) ? $nbPages : $page;
             $tabNews = $GW->findNews($page, $nbNewsParPage);
-
+            $tabLastNews = $GW->get3LastNews();
         }
         require($rep . $vues['vue1']);
     }

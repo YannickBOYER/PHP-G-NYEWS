@@ -88,6 +88,19 @@ class NewsGateway{
         return $tabNews;
     }
 
+    public function get3LastNews() : array{
+        $query='SELECT * from news ORDER BY date DESC LIMIT 3';
+        $this->con->executeQuery($query,array(
+        ));
+        $results=$this->con->getResults();
+        foreach($results as $row) {
+            if(empty($row['image'])) $img="vues/assets/img/desk.jpg"; else $img = $row['image']; //Mets une image de base
+            $tablastNews[] = new News($row['titre'], $row['description'], $row['lien'], $row['date'], $img);
+
+        }
+        return $tablastNews;
+    }
+
     public function getNbNews(): int{
         $query='SELECT COUNT(*) cpt FROM news';
         $this->con->executeQuery($query);

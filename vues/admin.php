@@ -52,7 +52,6 @@
                     <?php
                         }
                     ?>
-
                 </ul>
                 <hr>
                 <h2 class="text-center" style="width: auto;margin: 39px;">Supprimer un Site</h2>
@@ -69,8 +68,6 @@
 
                     <button class="btn btn-primary d-flex" type="submit" name="action" value="supprimerSite" style="margin: 20px;background: var(--bs-indigo);border-color: var(--bs-indigo);">Supprimer</button>
                     </form>
-
-
                 <hr>
                 <h2 class="text-center" style="width: auto;margin: 39px;">Nombre de News Par Page</h2>
                 <div class="d-flex justify-content-center align-items-center align-content-center">
