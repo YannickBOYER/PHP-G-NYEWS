@@ -32,12 +32,6 @@ require_once(__DIR__.'/config/config.php');
 require_once(__DIR__.'/config/Autoload.php');
 Autoload::charger();
 
-require_once(__DIR__.'/controleurs/CtrlUser.php');
-require_once(__DIR__.'/controleurs/CtrlAdmin.php');
-require_once(__DIR__.'/dal/NewsGateway.php');
-require_once(__DIR__.'/dal/SiteGateWay.php');
-
-
 //Provisoire
 $contU = new CtrlUser();
 $contA = new CtrlAdmin();

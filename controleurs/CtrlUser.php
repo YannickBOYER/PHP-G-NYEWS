@@ -36,14 +36,14 @@ class CtrlUser{
     }
 
     function init(){
-        global $rep,$vues,$login,$password,$base;
-        $GW = new NewsGateway(new Connection($base,$login,''));
+        global $rep,$vues;
+        $mdl = new Modele();
 
 
 
         //Gestion des pages de news
         $nbNewsParPage = 9;
-        $nbNewsTotal = $GW->getNbNews();
+        $nbNewsTotal = $mdl->getNombreNews();
         if($nbNewsTotal == 0) {
             $page = 1;
             $nbPages = 1;
@@ -56,8 +56,8 @@ class CtrlUser{
 
             $page = ($page == 0) ? 1 : $page;
             $page = ($page > $nbPages) ? $nbPages : $page;
-            $tabNews = $GW->findNews($page, $nbNewsParPage);
-            $tabLastNews = $GW->get3LastNews();
+            $tabNews = $mdl->trouverNews($page, $nbNewsParPage);
+            $tabLastNews = $mdl->trouver3DernieresNews();
         }
         require($rep . $vues['vue1']);
     }
@@ -66,7 +66,6 @@ class CtrlUser{
     function allerAArticle(){
         global $rep,$vues;
         $url=$_REQUEST['url'];
-        //Valider URL dans classe Validation
         header('Location: '.$url);
     }
 }
