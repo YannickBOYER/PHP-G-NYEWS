@@ -97,8 +97,7 @@ class NewsGateway{
     public function findNews($page,$nbNewsParPage) : array{
         $calc=($page-1)*$nbNewsParPage;
         $query='SELECT * from news ORDER BY date DESC LIMIT '.$calc.','.$nbNewsParPage;
-        $this->con->executeQuery($query,array(
-        ));
+        $this->con->executeQuery($query,array());
         $results=$this->con->getResults();
         foreach($results as $row) {
             if(empty($row['image'])) $img="vues/assets/img/desk.jpg"; else $img = $row['image']; //Mets une image de base

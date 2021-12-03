@@ -39,10 +39,8 @@ class CtrlUser{
         global $rep,$vues;
         $mdl = new Modele();
 
-
-
         //Gestion des pages de news
-        $nbNewsParPage = 9;
+        $nbNewsParPage = 9; // A globaliser
         $nbNewsTotal = $mdl->getNombreNews();
         if($nbNewsTotal == 0) {
             $page = 1;

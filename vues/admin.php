@@ -44,6 +44,7 @@
         <div class="card" style="padding: 0;">
             <div class="card-body" style="height: auto;">
                 <h2 class="text-center" style="width: auto;margin: 39px;">Liste des Sites</h2>
+                <?php if(isset($tabSite)) { ?>
                 <ul class="list-group">
                     <?php
                         foreach($tabSite as $Site) {
@@ -53,6 +54,7 @@
                         }
                     ?>
                 </ul>
+                <?php } ?>
                 <hr>
                 <h2 class="text-center" style="width: auto;margin: 39px;">Supprimer un Site</h2>
                     <form method="post" class="d-flex justify-content-center align-items-center align-content-center" >
