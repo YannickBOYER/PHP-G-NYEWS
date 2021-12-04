@@ -3,7 +3,6 @@ class CtrlUser{
     public function __construct()
     {
         global $rep,$vues;
-        session_start();
 
         $tVueErreur = array();
 

@@ -25,7 +25,6 @@ class CtrlAdmin
                     break;
             }
         } catch (PDOException $e) {
-            //si erreur BD, pas le cas ici
             $tVueErreur[] = "Erreur sur la Base de donnée !";
             require($rep . $vues['erreur']);
 
