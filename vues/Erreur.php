@@ -43,7 +43,7 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
-                </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="index.php?action=seConnecter" style="background: var(--bs-indigo);opacity: 1;">Connexion</a></span>
+                </ul><span class="navbar-text actions"> <a class="btn btn-light link-light action-button" role="button" data-bss-hover-animate="pulse" href="index.php?action=accesLogin" style="background: var(--bs-indigo);opacity: 1;">Connexion</a></span>
             </div>
         </div>
     </nav>

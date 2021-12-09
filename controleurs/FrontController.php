@@ -3,42 +3,51 @@
 class FrontController
 {
 
+    public function checkAction($actionsPossibles,$action)
+    {
+        foreach($actionsPossibles['Admin'] as $value)
+        {
+            if($value==$action)
+                return 'Admin';
+        }
+        foreach($actionsPossibles['User'] as $value)
+        {
+            if($value==$action)
+                return 'User';
+        }
+        return false;
+    }
+
+
     public function __construct()
     {
         global $rep, $vues;
         $tVueErreur = array();
 
-
+        $actionsPossibles = array('Admin'=>array('ajouterSite','supprimerSite'),'User'=>array('allerAArticle','seConnecter','accesLogin'));
+        echo(password_hash('1234',PASSWORD_DEFAULT));
+        var_dump($_SESSION['loginA']);
         try {
-            $mdlA = new ModeleAdmin();
-            $admin = $mdlA->isAdmin(); // A IMPLEMENTER
+
             $action = $_REQUEST['action'];
-            switch ($action) {
-                case "seConnecter":
-                    $adminCtrl = new CtrlAdmin(); // PENSER A CHECKER SI ADMIN==NULL DANS LE CONSTRUCTEUR => renvoie à la page de login
-                    $adminCtrl->seConnecter();
-                case "accesAdmin":
-                    $adminCtrl = new CtrlAdmin();
-                    $adminCtrl->accesAdmin($tVueErreur);
-                case "ajouterSite":
-                    $adminCtrl = new CtrlAdmin();
-                    $adminCtrl->ajouterSite($tVueErreur);
-                case "supprimerSite":
-                    $adminCtrl = new CtrlAdmin();
-                    $adminCtrl->supprimerSite($tVueErreur);
-                //Partie USER
-                case "allerAArticle":
-                    $userCtrl = new CtrlUser(); //
-                    $userCtrl->supprimerSite($tVueErreur);
-                case null:
-                    if($admin==null) {
-                        $userCtrl = new CtrlUser();
-                        $userCtrl->init();
-                    }
-                    else {
-                        $adminCtrl = new CtrlAdmin();
-                        $adminCtrl->chargerAdmin();
-                    }
+            $actor = $this->checkAction($actionsPossibles,$action);
+            echo $actor;
+
+            if($actor!=false) {
+
+                $mdlA = new ModeleAdmin();
+                $admin = $mdlA->isAdmin($tVueErreur);
+                if ($admin == NULL) {
+
+                    new CtrlUser();
+                }
+                else {
+                    echo"   test";
+                    new CtrlAdmin();
+                }
+            }
+            else {
+                new CtrlUser();
             }
         }
         catch (PDOException $e) {

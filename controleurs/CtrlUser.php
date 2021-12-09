@@ -3,7 +3,6 @@ class CtrlUser{
     public function __construct()
     {
         global $rep,$vues;
-
         $tVueErreur = array();
 
         try{
@@ -11,6 +10,12 @@ class CtrlUser{
             switch($action){
                 case NULL:
                     $this->init();
+                    break;
+                case "accesLogin":
+                    $this->accesLogin($tVueErreur);
+                    break;
+                case "seConnecter":
+                    $this->seConnecter($tVueErreur);
                     break;
                 case "cliquerNews":
                     $this->allerAArticle();
@@ -32,6 +37,26 @@ class CtrlUser{
                 require ($rep.$vues['erreur']);
             }
 
+    }
+
+    function accesLogin(array &$tVueErreur)
+    {
+        global $rep, $vues;
+        require($rep.$vues['login']);
+    }
+
+    function seConnecter(array &$tVueErreur)
+    {
+
+        global $rep, $vues;
+
+        $username = $_REQUEST['username'];
+        $pass = $_REQUEST['pass'];
+        $mdlA = new ModeleAdmin();
+        if(!$mdlA->connectAdmin($username,$pass,$tVueErreur)) {
+            $tVueErreur[] = "Username ou mot de passe non autorisé";
+            require($rep . $vues['erreur']);
+        }
     }
 
     function init(){

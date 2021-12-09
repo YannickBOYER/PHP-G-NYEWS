@@ -32,11 +32,16 @@ require_once(__DIR__.'/config/config.php');
 require_once(__DIR__.'/config/Autoload.php');
 Autoload::charger();
 
+$_SESSION = array();
+
 session_start();
 
 //Provisoire
+/*
 $contU = new CtrlUser();
 $contA = new CtrlAdmin();
+*/
 
-//A INCLURE QUAND LES CONTROLEURS SERONT REFAITS (ENLEVER LES SWITCHS)
-//$ctrl = new FrontController();
+
+//A INCLURE QUAND LES CONTROLEURS SERONT REFAITS
+$ctrl = new FrontController();

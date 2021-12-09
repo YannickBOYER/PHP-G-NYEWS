@@ -44,7 +44,7 @@
                                     <form method="post">
                                         <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Entrez le login..." style="margin-top: 50px;border-radius: 38px;"></div>
                                         <div class="mb-3"><input class="form-control" type="password" name="pass" placeholder="Mot de Passe" style="margin-top: 20px;border-radius: 33px;"></div>
-                                        <button class="btn btn-primary d-block btn-user w-100" name="action" value="accesAdmin">Login</button>
+                                        <button class="btn btn-primary d-block btn-user w-100" name="action" value="seConnecter">Login</button>
                                     </form>
 
 

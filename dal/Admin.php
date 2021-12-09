@@ -2,16 +2,13 @@
 
 class Admin
 {
-    private string $login;
-    private  string $role;
+    private $loginA;
+    private $role;
 
-    /**
-     * @param string $login
-     * @param string $role
-     */
-    public function __construct(string $login, string $role)
+
+    public function __construct(string $loginA, string $role)
     {
-        $this->login = $login;
+        $this->loginA = $loginA;
         $this->role = $role;
     }
 
@@ -36,17 +33,17 @@ class Admin
     /**
      * @return string
      */
-    public function getLogin(): string
+    public function getLoginA(): string
     {
-        return $this->login;
+        return $this->loginA;
     }
 
     /**
-     * @param string $login
+     * @param string $loginA
      */
-    public function setLogin(string $login): void
+    public function setLoginA(string $loginA): void
     {
-        $this->login = $login;
+        $this->loginA = $loginA;
     }
 
 

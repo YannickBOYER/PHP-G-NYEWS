@@ -6,17 +6,11 @@ class CtrlAdmin
     {
         global $rep, $vues;
         $tVueErreur = array();
-
+        $this->chargerAdmin();
 
         try {
             $action = $_REQUEST['action'];
             switch ($action) {
-                case "seConnecter":
-                    $this->seConnecter();
-                    break;
-                case "accesAdmin":
-                    $this->accesAdmin($tVueErreur);
-                    break;
                 case "ajouterSite":
                     $this->ajouterSite($tVueErreur);
                     break;
@@ -35,28 +29,7 @@ class CtrlAdmin
     }
 
 
-    function seConnecter()
-    {
-        global $rep, $vues;
-        require($rep . $vues['login']);
-    }
 
-    function accesAdmin(array &$tVueErreur)
-    {
-        global $rep, $vues;
-
-
-
-        $username = $_REQUEST['username'];
-        $pass = $_REQUEST['pass'];
-        if(Validation::validLogin($username,$pass,$tVueErreur)) {;
-          $this->chargerAdmin();
-        }
-        else {
-            $tVueErreur[] = "Username ou mot de passe non autorisé";
-            require($rep . $vues['erreur']);
-        }
-    }
 
     function chargerAdmin(){
         global $rep, $vues;
