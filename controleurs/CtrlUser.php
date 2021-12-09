@@ -21,7 +21,7 @@ class CtrlUser{
                     $this->allerAArticle();
                     break;
                 default:
-                    $tVueErreur[] =	"La victime tient des propos incohérents !";
+                    $tVueErreur[] =	"Propos incohérents !";
                     require ($rep.$vues['erreur']);
                     break;
             }
