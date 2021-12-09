@@ -9,7 +9,7 @@ class ModeleAdmin
         if (!empty($loginA) && !empty($role)) {
 
             if (Validation::validString($loginA,$tVueErreur) && Validation::validString($role,$tVueErreur)) {
-                var_dump($_SESSION['loginA']);
+
                 return new Admin($loginA, $role);
             }
             else

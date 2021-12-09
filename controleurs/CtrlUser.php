@@ -20,8 +20,10 @@ class CtrlUser{
                 case "cliquerNews":
                     $this->allerAArticle();
                     break;
-
-
+                default:
+                    $tVueErreur[] =	"La victime tient des propos incohérents !";
+                    require ($rep.$vues['erreur']);
+                    break;
             }
         }
         catch (PDOException $e)
@@ -57,6 +59,7 @@ class CtrlUser{
             $tVueErreur[] = "Username ou mot de passe non autorisé";
             require($rep . $vues['erreur']);
         }
+        header("Location: index.php?action=chargerAdmin");
     }
 
     function init(){

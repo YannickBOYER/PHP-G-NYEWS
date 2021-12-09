@@ -105,7 +105,7 @@
               }
                 ?>
         </div>
-        <div align="center">
+        <div align="center" style="padding-bottom:200px">
             <a href="index.php?page=<?php echo $page-1 ?>"> &lt&lt </a>
             <?php echo "1 ..." ?>
             <?php echo $page ?>

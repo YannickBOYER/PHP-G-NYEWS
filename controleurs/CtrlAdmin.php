@@ -6,7 +6,7 @@ class CtrlAdmin
     {
         global $rep, $vues;
         $tVueErreur = array();
-        $this->chargerAdmin();
+        //$this->chargerAdmin();
 
         try {
             $action = $_REQUEST['action'];
@@ -17,6 +17,13 @@ class CtrlAdmin
                 case "supprimerSite":
                     $this->supprimerSite($tVueErreur);
                     break;
+                case "seDeconnecter":
+                    $this->deconnexion($tVueErreur);
+                    break;
+                case "chargerAdmin" || null:
+                    $this->chargerAdmin();
+                    break;
+
             }
         } catch (PDOException $e) {
             $tVueErreur[] = "Erreur sur la Base de donnée !";
@@ -79,5 +86,13 @@ class CtrlAdmin
         }
 
     }
+
+    function deconnexion(array &$tVueErreur){
+        global $rep, $vues;
+        session_unset();
+        header("Location: index.php");
+    }
+
+
 
 }
