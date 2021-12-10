@@ -62,6 +62,9 @@ class CtrlUser{
         header("Location: index.php?action=chargerAdmin");
     }
 
+    /**
+     * @throws Exception
+     */
     function init(){
         global $rep,$vues;
         $mdl = new Modele();
@@ -69,6 +72,18 @@ class CtrlUser{
         //Gestion des pages de news
         $nbNewsParPage = 9; // A globaliser
         $nbNewsTotal = $mdl->getNombreNews();
+
+        $sitesR=$mdl->trouverSites();
+        foreach ($sitesR as $siteR){
+            $tabNewsRSS=new SimpleXMLElement($siteR->getFluxRSS(),0,true,"",false);
+            foreach($tabNewsRSS->channel->item as $item){
+                $mdl->ajouterEnBase($item->title,$item->pubDate,$item->description,$item->link);
+            }
+        }
+
+
+
+
         if($nbNewsTotal == 0) {
             $page = 1;
             $nbPages = 1;

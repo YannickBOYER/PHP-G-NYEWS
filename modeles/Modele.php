@@ -17,4 +17,14 @@ class Modele
         $gw=new NewsGateway(new Connection($base,$login,$mdp));
         return $gw->get3LastNews();
     }
+    public function trouverSites(){
+        global $login,$mdp,$base;
+        $gw=new SiteGateway(new Connection($base,$login,$mdp));
+        return $gw->findAllSites();
+    }
+    public function ajouterEnBase($title,$pubDate,$description,$link){
+        global $login,$mdp,$base;
+        $gw=new NewsGateway(new Connection($base,$login,$mdp));
+        $gw->insert($title,$description,$link,$pubDate);
+    }
 }
