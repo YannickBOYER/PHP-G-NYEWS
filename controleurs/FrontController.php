@@ -31,22 +31,22 @@ class FrontController
 
             $action = $_REQUEST['action'];
             $actor = $this->checkAction($actionsPossibles,$action);
-            //echo $actor;
-
-            if($actor!=false) {
-
-                $mdlA = new ModeleAdmin();
-                $admin = $mdlA->isAdmin($tVueErreur);
-                if ($admin == NULL) {
+                if ($actor != false) {
+                    $mdlA = new ModeleAdmin();
+                    $admin = $mdlA->isAdmin($tVueErreur);
+                    if ($admin == NULL) {
+                        if($actor=='Admin')
+                            require($rep.$vues['login']);
+                        else
+                            new CtrlUser();
+                    } else {
+                        new CtrlAdmin();
+                    }
+                } else {
                     new CtrlUser();
                 }
-                else {
-                    new CtrlAdmin();
-                }
-            }
-            else {
-                new CtrlUser();
-            }
+
+
         }
         catch (PDOException $e) {
             $tVueErreur[] = "Erreur sur la Base de donnée !";
