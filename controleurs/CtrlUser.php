@@ -68,9 +68,9 @@ class CtrlUser{
     function init(){
         global $rep,$vues;
         $mdl = new Modele();
-
+        $mdlA= new ModeleAdmin();
         //Gestion des pages de news
-        $nbNewsParPage = 9; // A globaliser
+        $nbNewsParPage = $mdlA->getNbNewsParPage(); // A globaliser
         $nbNewsTotal = $mdl->getNombreNews();
 
         $sitesR=$mdl->trouverSites();

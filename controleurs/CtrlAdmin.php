@@ -20,6 +20,9 @@ class CtrlAdmin
                 case "seDeconnecter":
                     $this->deconnexion($tVueErreur);
                     break;
+                case "changerNbNewsParPage":
+                    $this->modifierNbNewsParPage($tVueErreur);
+                    break;
                 case "chargerAdmin" || null:
                     $this->chargerAdmin();
                     break;
@@ -85,6 +88,20 @@ class CtrlAdmin
             require($rep . $vues['erreur']);
         }
 
+    }
+
+    function modifierNbNewsParPage(array &$tVueErreur){
+        global $rep, $vues;
+        $nb=$_REQUEST["nbNewsParPage"];
+        $mdlA=new ModeleAdmin();
+        if(!$mdlA->modifierNbNewsModele($nb)){
+            $tVueErreur[]="Erreur lors de la modification du nombre de News";
+            require($rep . $vues['erreur']);
+        }
+        if(empty($tVueErreur)){
+            header("Location: index.php?action=chargerAdmin");
+
+        }
     }
 
     function deconnexion(array &$tVueErreur){

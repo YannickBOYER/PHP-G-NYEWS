@@ -24,7 +24,7 @@ class FrontController
         global $rep, $vues;
         $tVueErreur = array();
 
-        $actionsPossibles = array('Admin'=>array('ajouterSite','supprimerSite','seDeconnecter','chargerAdmin'),'User'=>array('allerAArticle','seConnecter','accesLogin'));
+        $actionsPossibles = array('Admin'=>array('ajouterSite','supprimerSite','seDeconnecter','chargerAdmin','changerNbNewsParPage'),'User'=>array('allerAArticle','seConnecter','accesLogin'));
         //echo(password_hash('1234',PASSWORD_DEFAULT));
         //var_dump($_SESSION['loginA']);
         try {

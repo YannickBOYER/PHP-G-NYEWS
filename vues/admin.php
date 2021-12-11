@@ -73,13 +73,17 @@
                 <hr>
                 <h2 class="text-center" style="width: auto;margin: 39px;">Nombre de News Par Page</h2>
                 <div class="d-flex justify-content-center align-items-center align-content-center">
-                    <select  >
-                            <option value="3" selected="">3</option>
+                    <form method="post" class="d-flex justify-content-center align-items-center align-content-center" >
+                    <select name="nbNewsParPage">
+                            <option value="9" selected>Choisissez un nombre (default : 9)</option>
+                            <option value="3" >3</option>
                             <option value="6">6</option>
                             <option value="9">9</option>
                             <option value="12">12</option>
                     </select>
-                    </div>
+                    <button class="btn btn-primary d-flex" type="submit" name="action" value="changerNbNewsParPage" style="margin: 20px;background: var(--bs-indigo);border-color: var(--bs-indigo);">Valider</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

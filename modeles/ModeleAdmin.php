@@ -58,4 +58,16 @@ class ModeleAdmin
         $gw->delete($lien);
     }
 
+    public function getNbNewsParPage(): int {
+        global $login, $mdp, $base;
+        $gw = new AdminGateway(new Connection($base,$login,$mdp));
+        return $gw->getNbNewsParPage();
+    }
+
+    public function modifierNbNewsModele($nb):bool {
+        global $login, $mdp, $base;
+        $gw = new AdminGateway(new Connection($base,$login,$mdp));
+        return $gw->modifierNbNewsGW($nb);
+    }
+
 }
