@@ -27,4 +27,15 @@ class Modele
         $gw=new NewsGateway(new Connection($base,$login,$mdp));
         $gw->insert($title,$description,$link,$pubDate);
     }
+    public function existNews($lien) : bool
+    {
+        global $login,$mdp,$base;
+        $gw=new NewsGateway(new Connection($base,$login,$mdp));
+        if($gw->getNbNewsWithLink($lien)==0) {
+
+            return false;
+        }
+
+        return true;
+    }
 }

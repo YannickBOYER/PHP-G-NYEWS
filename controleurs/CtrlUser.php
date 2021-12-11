@@ -74,13 +74,16 @@ class CtrlUser{
         $nbNewsTotal = $mdl->getNombreNews();
 
         $sitesR=$mdl->trouverSites();
-        foreach ($sitesR as $siteR){
-            $tabNewsRSS=new SimpleXMLElement($siteR->getFluxRSS(),0,true,"",false);
-            foreach($tabNewsRSS->channel->item as $item){
-                $mdl->ajouterEnBase($item->title,$item->pubDate,$item->description,$item->link);
+
+        if(!empty($sitesR)) {
+            foreach ($sitesR as $siteR) {
+                $tabNewsRSS = new SimpleXMLElement($siteR->getFluxRSS(), 0, true, "", false);
+                foreach ($tabNewsRSS->channel->item as $item) {
+                    if(!$mdl->existNews($item->link))
+                        $mdl->ajouterEnBase($item->title, $item->pubDate, $item->description, $item->link);
+                }
             }
         }
-
 
 
 

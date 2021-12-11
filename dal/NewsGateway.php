@@ -13,12 +13,15 @@ class NewsGateway{
      * Cette fonction permet d'insérer une nouvelle news dans la base de données
      */
     public function insert(string $titre, string $description, string $lien, string $date){
-        $query='INSERT INTO NEWS VALUES(:titre,:description,:lien,:date)';
+
+        $query='INSERT INTO news VALUES(:titre,:description,:lien,:date,:image)';
+
         $this->con->executeQuery($query, array(
-            ':titre' => array($titre,PDO::PARAM_STR),
-            ':description' => array($description,PDO::PARAM_STR),
-            ':lien' => array($lien,PDO::PARAM_STR),
-            ':date' => array($date,PDO::PARAM_STR)
+            ":titre" => array($titre,PDO::PARAM_STR),
+            ":description" => array($description,PDO::PARAM_STR),
+            ":lien" => array($lien,PDO::PARAM_STR),
+            ":date" => array($date,PDO::PARAM_STR),
+            ":image" => array('',PDO::PARAM_STR)
         ));
     }
     /**
@@ -130,6 +133,17 @@ class NewsGateway{
         $this->con->executeQuery($query);
         $results=$this->con->getResults();
         return $results[0]['cpt'];
+    }
+
+    public function getNbNewsWithLink($lien) {
+
+        $query='SELECT COUNT(*) nb FROM news WHERE lien=:lien';
+        $this->con->executeQuery($query, array(
+            ":lien"=> array($lien,PDO::PARAM_STR)
+        ));
+
+        $results=$this->con->getResults();
+        return $results[0]['nb'];
     }
 }
 ?>

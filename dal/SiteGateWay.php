@@ -69,7 +69,7 @@ class SiteGateWay
     /**
      * Cette fonction permet de trouver tous les sites dans la base de données et de les retourner sous forme de tableau (array)
      */
-    public function findAllSites() : array{
+    public function findAllSites() {
         $query='SELECT * FROM sites';
         $this->con->executeQuery($query);
         $results=$this->con->getResults();
