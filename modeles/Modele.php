@@ -22,17 +22,16 @@ class Modele
         $gw=new SiteGateway(new Connection($base,$login,$mdp));
         return $gw->findAllSites();
     }
-    public function ajouterEnBase($title,$pubDate,$description,$link){
+    public function ajouterEnBase($title,$pubDate,$description,$link,$image){
         global $login,$mdp,$base;
         $gw=new NewsGateway(new Connection($base,$login,$mdp));
-        $gw->insert($title,$description,$link,$pubDate);
+        $gw->insert($title,$description,$link,$pubDate,$image);
     }
     public function existNews($lien) : bool
     {
         global $login,$mdp,$base;
         $gw=new NewsGateway(new Connection($base,$login,$mdp));
         if($gw->getNbNewsWithLink($lien)==0) {
-
             return false;
         }
 

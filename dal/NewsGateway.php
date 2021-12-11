@@ -12,7 +12,7 @@ class NewsGateway{
     /**
      * Cette fonction permet d'insérer une nouvelle news dans la base de données
      */
-    public function insert(string $titre, string $description, string $lien, string $date){
+    public function insert(string $titre, string $description, string $lien, string $date,$image){
 
         $query='INSERT INTO news VALUES(:titre,:description,:lien,:date,:image)';
 
@@ -21,7 +21,7 @@ class NewsGateway{
             ":description" => array($description,PDO::PARAM_STR),
             ":lien" => array($lien,PDO::PARAM_STR),
             ":date" => array($date,PDO::PARAM_STR),
-            ":image" => array('',PDO::PARAM_STR)
+            ":image" => array($image,PDO::PARAM_STR)
         ));
     }
     /**
