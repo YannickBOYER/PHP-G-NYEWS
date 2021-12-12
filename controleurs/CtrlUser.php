@@ -59,7 +59,9 @@ class CtrlUser{
             $tVueErreur[] = "Username ou mot de passe non autorisé";
             require($rep . $vues['erreur']);
         }
-        header("Location: index.php?action=chargerAdmin");
+        else {
+            header("Location: index.php?action=chargerAdmin");
+        }
     }
 
     /**
