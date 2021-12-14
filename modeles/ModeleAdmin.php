@@ -18,7 +18,7 @@ class ModeleAdmin
         return null;
     }
 
-    public function connectAdmin(string $loginA, string $pass, array &$tVueErreur):bool
+    public function connectAdmin( $loginA,  $pass, array &$tVueErreur):bool
     {
         global $base,$login,$mdp;
         if(Validation::validLogin($loginA,$pass,$tVueErreur)){
