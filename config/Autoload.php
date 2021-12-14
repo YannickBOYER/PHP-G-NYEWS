@@ -35,9 +35,10 @@ class Autoload
         $dir =array('dal/','./','config/','controleurs/','modeles/');
         foreach ($dir as $d){
             $file=$rep.$d.$filename;
-            //echo $file;
+            
             if (file_exists($file))
             {
+
                 include $file;
             }
         }

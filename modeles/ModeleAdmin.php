@@ -48,9 +48,11 @@ class ModeleAdmin
 
     public function insererSite($nom,$lien,$logo,$flux) : bool{
         global $login,$mdp,$base;
+
         $gw=new SiteGateWay(new Connection($base,$login,$mdp));
         if($gw->findNbSites($flux)==0) {
             $gw->insert($nom, $lien, $logo, $flux);
+             var_dump("test");
             return true;
         }
         return false;
@@ -64,13 +66,13 @@ class ModeleAdmin
 
     public function getNbNewsParPage(): int {
         global $login, $mdp, $base;
-        $gw = new AdminGateway(new Connection($base,$login,$mdp));
+        $gw = new AdminGateWay(new Connection($base,$login,$mdp));
         return $gw->getNbNewsParPage();
     }
 
     public function modifierNbNewsModele($nb):bool {
         global $login, $mdp, $base;
-        $gw = new AdminGateway(new Connection($base,$login,$mdp));
+        $gw = new AdminGateWay(new Connection($base,$login,$mdp));
         return $gw->modifierNbNewsGW($nb);
     }
 

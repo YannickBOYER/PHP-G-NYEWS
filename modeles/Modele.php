@@ -19,7 +19,7 @@ class Modele
     }
     public function trouverSites(){
         global $login,$mdp,$base;
-        $gw=new SiteGateway(new Connection($base,$login,$mdp));
+        $gw=new SiteGateWay(new Connection($base,$login,$mdp));
         return $gw->findAllSites();
     }
     public function ajouterEnBase($title,$pubDate,$description,$link,$image){

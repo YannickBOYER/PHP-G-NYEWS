@@ -19,10 +19,11 @@ class SiteGateWay
      */
     public function insert(string $nom, string $lien, string $logo, string $flux){
         $query='INSERT INTO sites VALUES(:nom,:logo,:lien,:flux)';
+        
         $this->con->executeQuery($query, array(
             ':nom' => array($nom,PDO::PARAM_STR),
-            ':lien' => array($lien,PDO::PARAM_STR),
             ':logo' => array($logo,PDO::PARAM_STR),
+            ':lien' => array($lien,PDO::PARAM_STR),
             ':flux' => array($flux,PDO::PARAM_STR)
         ));
     }
@@ -33,7 +34,7 @@ class SiteGateWay
         $query='UPDATE sites SET nom=:newNom WHERE flux=:flux';
         $this->con->executeQuery($query,array(
             ':flux'=> array($flux,PDO::PARAM_STR),
-            ':newTitre' => array($newNom,PDO::PARAM_STR)
+            ':newNom' => array($newNom,PDO::PARAM_STR)
         ));
     }
     /**
@@ -43,7 +44,7 @@ class SiteGateWay
         $query='UPDATE sites SET logo=:newLogo WHERE flux=:flux';
         $this->con->executeQuery($query,array(
             ':flux'=> array($flux,PDO::PARAM_STR),
-            ':newDescription' => array($newLogo,PDO::PARAM_STR)
+            ':newLogo' => array($newLogo,PDO::PARAM_STR)
         ));
     }
     /**
@@ -74,7 +75,7 @@ class SiteGateWay
         $this->con->executeQuery($query);
         $results=$this->con->getResults();
         foreach ($results as $row)
-            $tabSite[]=new Site($row['nom'],$row['lien'],$row['logo'],$row['flux']);
+            $tabSite[]=new site($row['nom'],$row['lien'],$row['logo'],$row['flux']);
         return $tabSite;
     }
     /**
@@ -101,7 +102,7 @@ class SiteGateWay
      * cette fonction nous permettra de vérifier l'existence et l'unicité d'un site
      */
     public function findNbSites(string $flux) :int{
-        $query='SELECT COUNT(*) cpt FROM SITES WHERE flux=:flux';
+        $query='SELECT COUNT(*) cpt FROM sites WHERE flux=:flux';
         $this->con->executeQuery($query, array(
             ':flux'=> array($flux,PDO::PARAM_STR)
         ));

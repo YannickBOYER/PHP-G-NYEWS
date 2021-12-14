@@ -104,7 +104,7 @@ class NewsGateway{
         $results=$this->con->getResults();
         foreach($results as $row) {
             if(empty($row['image'])) $img="vues/assets/img/desk.jpg"; else $img = $row['image']; //Mets une image de base
-            $tabNews[] = new News($row['titre'], $row['description'], $row['lien'], $row['date'], $img);
+            $tabNews[] = new news($row['titre'], $row['description'], $row['lien'], $row['date'], $img);
 
         }
         return $tabNews;
