@@ -52,7 +52,6 @@ class ModeleAdmin
         $gw=new SiteGateWay(new Connection($base,$login,$mdp));
         if($gw->findNbSites($flux)==0) {
             $gw->insert($nom, $lien, $logo, $flux);
-             var_dump("test");
             return true;
         }
         return false;

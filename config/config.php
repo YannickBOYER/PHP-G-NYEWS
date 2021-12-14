@@ -3,9 +3,15 @@
 $rep=__DIR__.'/../';
 
 //Base de Données
+$base="mysql:host=localhost;dbname=dbguassailly;charset=utf8";
+$login="root";
+$mdp="";
+
+/* IUT :
 $base="mysql:host=berlin.iut.local;dbname=dbguassailly;charset=utf8";
 $login="guassailly";
 $mdp="1234";
+*/
 
 //Liste de vues
 $vues['vue1']='vues/vue1.php';
