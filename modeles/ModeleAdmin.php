@@ -46,16 +46,20 @@ class ModeleAdmin
         return $gw->findAllSites();
     }
 
-    public function insererSite($nom,$lien,$logo,$flux) {
+    public function insererSite($nom,$lien,$logo,$flux) : bool{
         global $login,$mdp,$base;
         $gw=new SiteGateWay(new Connection($base,$login,$mdp));
-        $gw->insert($nom,$lien,$logo,$flux);
+        if($gw->findNbSites($flux)==0) {
+            $gw->insert($nom, $lien, $logo, $flux);
+            return true;
+        }
+        return false;
     }
 
-    public function delSite($lien) {
+    public function delSite($flux) {
         global $login,$mdp,$base;
         $gw=new SiteGateWay(new Connection($base,$login,$mdp));
-        $gw->delete($lien);
+        $gw->delete($flux);
     }
 
     public function getNbNewsParPage(): int {

@@ -63,8 +63,12 @@ class CtrlAdmin
         $flux = $_REQUEST['flux'];
 
         if(Validation::validSite($nom,$logo,$lien,$flux,$tVueErreur)){
-            $mdlA->insererSite($nom,$lien,$logo,$flux);
-            $this->chargerAdmin();
+            if($mdlA->insererSite($nom,$lien,$logo,$flux))
+                $this->chargerAdmin();
+            else {
+                $tVueErreur[] = "Un site possède déjà ce flux rss";
+                require($rep . $vues['erreur']);
+            }
         }
         else {
             $tVueErreur[] = "Erreur lors de la validation de l'ajout du site";
@@ -77,10 +81,10 @@ class CtrlAdmin
         global $rep, $vues;
         $mdlA = new ModeleAdmin();
 
-        $selectedlien = $_POST['choixSuppr'];
+        $selectedflux = $_POST['choixSuppr'];
 
-        if(Validation::validURL($selectedlien,$tVueErreur)){
-            $mdlA->delSite($selectedlien);
+        if(Validation::validURL($selectedflux,$tVueErreur)){
+            $mdlA->delSite($selectedflux);
             $this->chargerAdmin();
         }
         else{

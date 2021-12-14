@@ -25,12 +25,12 @@ class FrontController
         $tVueErreur = array();
 
         $actionsPossibles = array('Admin'=>array('ajouterSite','supprimerSite','seDeconnecter','chargerAdmin','changerNbNewsParPage'),'User'=>array('allerAArticle','seConnecter','accesLogin'));
-        //echo(password_hash('1234',PASSWORD_DEFAULT));
-        //var_dump($_SESSION['loginA']);
+
         try {
 
             $action = $_REQUEST['action'];
             $actor = $this->checkAction($actionsPossibles,$action);
+
                 if ($actor != false) {
                     $mdlA = new ModeleAdmin();
                     $admin = $mdlA->isAdmin($tVueErreur);

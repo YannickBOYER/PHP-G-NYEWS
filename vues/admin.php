@@ -62,7 +62,7 @@
                             <?php
                             foreach($tabSite as $Site) {
                             ?>
-                            <option value="<?php echo $Site->getLienS() ?>" ><?php echo $Site->getNomS() ?> </option>
+                            <option value="<?php echo $Site->getFluxRSS() ?>" ><?php echo $Site->getNomS() ?> </option>
                                 <?php
                             }
                             ?>

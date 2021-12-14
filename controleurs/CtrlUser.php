@@ -82,12 +82,12 @@ class CtrlUser{
                 $tabNewsRSS = new SimpleXMLElement($siteR->getFluxRSS(), 0, true, "", false);
                 foreach ($tabNewsRSS->channel->item as $item) {
                     if(!$mdl->existNews($item->link)) {
-                        //$image=$item.find('media\\:content, content').attr('url');
+
                         $image = $item->children('media', True)->content->attributes()->url;
                         if (empty($image)) {
                             $image = '';
                         }
-                        var_dump($image);
+
                         $mdl->ajouterEnBase($item->title, $item->pubDate, $item->description, $item->link, $image);
                     }
                 }
