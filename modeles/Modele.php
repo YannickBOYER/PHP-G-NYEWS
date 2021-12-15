@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * C'est dans cette classe que l'on va appeler les différentes fonctions des GateWay site et news
+ * Qui seront nécessaires pour un utilisateur du site
+ */
 class Modele
 {
     public function getNombreNews() :int{

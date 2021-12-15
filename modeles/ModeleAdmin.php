@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * C'est dans cette classe que l'on va appeler les différentes fonctions des GateWay site et admin
+ * Qui seront nécessaires pour un administrateur du site
+ */
 class ModeleAdmin
 {
 

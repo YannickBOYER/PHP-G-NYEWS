@@ -1,4 +1,8 @@
 <?php
+/*
+ * La classe Connection va permettre d'intéragir avec la base de données
+ * Les autres classes utiliseront ces fonctions pour exécuter les requêtes et en obtenir les résultats
+ */
 class Connection extends PDO { 
 
 private $stmt;

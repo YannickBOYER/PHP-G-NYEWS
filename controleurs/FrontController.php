@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Le FrontController s'occupe à sa construction de créer soit un controleur User, soit
+ * un controleur Admin en fonction de s'il y a une connexion ou non et de si l'action demandée
+ * nécessite d'être un Admin ou pas
+ */
 class FrontController
 {
 

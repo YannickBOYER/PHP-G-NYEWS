@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * La classe NewsGateWay va permettre d'intéragir avec la table news de la base de données
+ */
 class NewsGateway{
     private $con;
 

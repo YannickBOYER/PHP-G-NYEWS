@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * La classe AdminGateWay va permettre d'intéragir avec la table admin de la base de données
+ */
 class AdminGateWay
 {
     private $con;

@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * Les actions effectuées par l'administrateur seront récupérées ici, en fonction de ces
+ * actions différentes méthodes seront appelées, en utilisant notamment le modèle Admin
+ */
 class CtrlAdmin
 {
     public function __construct()

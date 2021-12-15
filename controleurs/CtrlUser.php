@@ -1,4 +1,9 @@
 <?php
+
+/*
+ * Les actions effectuées par un utilisateur seront récupérées ici, en fonction de ces actions différentes méthodes seront appelées.
+ * On instanciera un modèle User à l'initialisation ou un modèle Admin si l'utilisateur s'est connecté en tant qu'administrateur.
+ */
 class CtrlUser{
     public function __construct()
     {

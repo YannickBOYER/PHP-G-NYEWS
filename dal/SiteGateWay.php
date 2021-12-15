@@ -1,6 +1,8 @@
 <?php
 
-
+/*
+ * La classe SiteGateWay va permettre d'intéragir avec la table sites de la base de données
+ */
 class SiteGateWay
 {
     private $con;
